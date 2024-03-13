@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
+    background-image: url("../images/smart-library.jpg");
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navigation-bar {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    background-color: white;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navigation-bar .left-part {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.home-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    margin-left: 20px;
+}
+
+.home-links .library-name {
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+
+.navigation-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style-type: none;
+}
+
+.navigation-links li {
+    border: 2px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: orange;
+}
+
+.navigation-links li:hover {
+    cursor: pointer;
+    background-color: #ff7300;
+}
+
+.navigation-links li a {
+    text-decoration: none;
+}
+
+.navigation-links li a:hover {
+    color: white;
+}
+
+.right-part {
+    margin-right: 20px;
+}
+
+.footer {
+    width: 100%;
+    background-color: orange;
+    text-align: center;
+    padding: 30px 0 30px 0;
+    margin-top: auto;
+    font-weight: bold;
+}

@@ -1,0 +1,61 @@
+{% load static %}
+
+<nav class="navigation-bar">
+    <section class="left-part">
+        <div class="home-links">
+            <a href="{% url 'home' %}">
+            <img width="42px" src="{% static 'images/smart-library.jpg' %}" alt="smart library image">
+            </a>
+            <a class="library-name" href="{% url 'home' %}">Smart Library</a>
+        </div>
+
+        <ul class="navigation-links">
+            <li>
+                <a href="#">Books</a>
+            </li>
+            <li>
+                <a href="#">Categories</a>
+            </li>
+            <li>
+                <a href="#">Authors</a>
+            </li>
+            {% if request.user.is_authenticated %}
+                <li>
+                    <a href="#">My reviews</a>
+                </li>
+                <li>
+                    <a href="#">My rents</a>
+                </li>
+            {% endif %}
+        </ul>
+    </section>
+
+    <ul class="right-part">
+        {% if request.user.is_authenticated %}
+        <ul class="navigation-links">
+            <li>
+                <span>Hello, {{ request.user.username }}</span>
+            </li>
+            <li>
+                <a href="#">Profile</a>
+            </li>
+            <li>
+                <a href="#">Change Password</a>
+            </li>
+            <li>
+                <a href="#">Logout</a>
+            </li>
+        </ul>
+        {% else %}
+        <ul class="navigation-links">
+            <li>
+                <a href="#">Login</a>
+            </li>
+            <li>
+                <a href="#">Register</a>
+            </li>
+        </ul>
+        {% endif %}
+    </ul>
+</nav>
+
