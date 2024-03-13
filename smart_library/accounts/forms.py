@@ -1,12 +1,15 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.core.validators import MinLengthValidator, RegexValidator
 
 from smart_library.accounts.models import AppUser, Profile
 
 
 class AppUserRegistrationForm(UserCreationForm):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
+    first_name = forms.CharField(
+        validators=[MinLengthValidator(2), RegexValidator(r'^[a-zA-Z]*$', 'The name should contain only letters!')])
+    last_name = forms.CharField(
+        validators=[MinLengthValidator(2), RegexValidator(r'^[a-zA-Z]*$', 'The name should contain only letters!')])
 
     class Meta:
         model = AppUser
@@ -38,3 +41,10 @@ class AppUserRegistrationForm(UserCreationForm):
             profile.save()
 
         return user
+
+
+class AppUserLoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['placeholder'] = 'Enter Username'
+        self.fields['password'].widget.attrs['placeholder'] = 'Enter Password'
