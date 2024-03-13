@@ -52,10 +52,25 @@
                 <a href="#">Login</a>
             </li>
             <li>
-                <a href="#">Register</a>
+                <a href="{% url 'register user' %}">Register</a>
             </li>
         </ul>
         {% endif %}
     </ul>
 </nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let liElements = document.querySelectorAll('.navigation-links li');
+        liElements.forEach(function(li) {
+            li.addEventListener('click', function(event) {
+                let clickedLi = event.currentTarget;
+                let link = clickedLi.querySelector('a');
+                if (link) {
+                    link.click();
+                }
+            });
+        });
+    });
+</script>
 

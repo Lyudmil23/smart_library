@@ -60,10 +60,11 @@ body {
 }
 
 .navigation-links li a {
+    color: #0037b0;
     text-decoration: none;
 }
 
-.navigation-links li a:hover {
+.navigation-links li:hover a {
     color: white;
 }
 
