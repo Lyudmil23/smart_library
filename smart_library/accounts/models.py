@@ -1,8 +1,10 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 from smart_library.accounts.managers import AppUserManager
+from smart_library.core.validators import validate_only_letters
 
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
@@ -42,3 +44,60 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'username'
 
     objects = AppUserManager()
+
+
+class Profile(models.Model):
+    CHOICES = (
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Do not show', 'Do not show'),
+    )
+
+    MIN_LENGTH_FIRST_NAME = 2
+    MAX_LENGTH_FIRST_NAME = 30
+
+    MIN_LENGTH_LAST_NAME = 2
+    MAX_LENGTH_LAST_NAME = 30
+
+    MAX_LENGTH_GENDER = 15
+
+    IMAGE_UPLOAD_TO_DIR = 'profiles/'
+
+    first_name = models.CharField(
+        max_length=MAX_LENGTH_FIRST_NAME,
+        validators=(
+            MinLengthValidator(MIN_LENGTH_FIRST_NAME),
+            validate_only_letters,
+        ),
+        null=False,
+        blank=False,
+    )
+
+    last_name = models.CharField(
+        max_length=MAX_LENGTH_LAST_NAME,
+        validators=(
+            MinLengthValidator(MIN_LENGTH_LAST_NAME),
+            validate_only_letters,
+        ),
+        null=False,
+        blank=False,
+    )
+
+    gender = models.CharField(
+        max_length=MAX_LENGTH_GENDER,
+        choices=CHOICES,
+        null=True,
+        blank=True,
+    )
+
+    profile_image = models.ImageField(
+        upload_to=IMAGE_UPLOAD_TO_DIR,
+        null=True,
+        blank=True,
+    )
+
+    user = models.OneToOneField(
+        AppUser,
+        primary_key=True,
+        on_delete=models.CASCADE,
+    )
