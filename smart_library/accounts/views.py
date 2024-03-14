@@ -32,7 +32,7 @@ class AppUserLogoutView(LogoutView):
 class AppUserDetailsView(LoginRequiredMixin, DetailView):
     model = AppUser
     template_name = 'accounts/profile-details.html'
-    context_object_name = 'profile'
+    context_object_name = 'user'
 
 
 class AppUserEditView(LoginRequiredMixin, UpdateView):

@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% block title %} | Profile Edit {% endblock %}
+{% block page_content %}
+    <section class="profile">
+    <div class="profile-form">
+        <h1>Edit Profile</h1>
+        {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        <form class="form" action="{% url 'profile edit' pk=profile.pk %}" method="POST" enctype="multipart/form-data">
+            {{ form }}
+            {% csrf_token %}
+            <button class="edit" type="submit">Edit</button>
+        </form>
+    </div>
+    </section>
+
+{% endblock %}

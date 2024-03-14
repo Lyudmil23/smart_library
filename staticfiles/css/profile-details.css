@@ -14,6 +14,16 @@
     margin-left: 20px;
 }
 
+.profile-image {
+    height: 210px;
+    width: 205px;
+}
+
+.profile-image img {
+    height: 100%;
+    width: 100%;
+}
+
 
 .user-profile-info p {
     font-size: 20px;
@@ -22,7 +32,6 @@
 .user-profile-buttons {
     display: flex;
     justify-content: space-between;
-    /*gap: 145px;*/
     margin: 20px 30px 35px 30px;
 }
 
