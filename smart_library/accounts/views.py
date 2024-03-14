@@ -1,5 +1,5 @@
 from django.contrib.auth import login
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -21,4 +21,8 @@ class AppUserRegistrationView(CreateView):
 class AppUserLoginView(LoginView):
     template_name = 'accounts/login.html'
     form_class = AppUserLoginForm
+
+
+class AppUserLogoutView(LogoutView):
+    next_page = reverse_lazy('home')
 

@@ -20,5 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('smart_library.common.urls')),
-    path('acccounts/', include('smart_library.accounts.urls')),
+    path('accounts/', include('smart_library.accounts.urls')),
 ]

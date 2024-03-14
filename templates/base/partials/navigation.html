@@ -43,13 +43,13 @@
                 <a href="#">Change Password</a>
             </li>
             <li>
-                <a href="#">Logout</a>
+                <a href="{% url 'logout user' %}">Logout</a>
             </li>
         </ul>
         {% else %}
         <ul class="navigation-links">
             <li>
-                <a href="#">Login</a>
+                <a href="{% url 'login user' %}">Login</a>
             </li>
             <li>
                 <a href="{% url 'register user' %}">Register</a>
