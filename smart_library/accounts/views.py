@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from smart_library.accounts.forms import AppUserRegistrationForm, AppUserLoginForm, ProfileEditForm
 from smart_library.accounts.models import AppUser, Profile
@@ -46,3 +46,9 @@ class AppUserEditView(LoginRequiredMixin, UpdateView):
             'pk': self.request.user.pk,
         })
 
+
+class AppUserDeleteView(LoginRequiredMixin, DeleteView):
+    model = AppUser
+    template_name = 'accounts/profile-delete.html'
+    context_object_name = 'user'
+    success_url = reverse_lazy('home')

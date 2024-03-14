@@ -46,8 +46,10 @@
     font-weight: bold;
 }
 
-.profile button:hover {
+.edit:hover {
     cursor: pointer;
     background-color: blue;
 }
+
+
 

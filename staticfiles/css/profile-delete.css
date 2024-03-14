@@ -1,0 +1,39 @@
+.profile-delete-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    gap: 30px;
+}
+
+.profile-delete-form button {
+    color: white;
+    background-color: red;
+    padding: 10px 38px;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.profile-delete-form button:hover {
+    cursor: pointer;
+    background-color: #bb0707;
+
+}
+
+.profile-delete-form a {
+    color: white;
+    background-color: #0077ff;
+    text-decoration: none;
+    padding: 10px 35px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile-delete-form a:hover {
+    cursor: pointer;
+    background-color: blue;
+}
