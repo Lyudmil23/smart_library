@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.utils.html import format_html
 
-from smart_library.accounts.models import AppUser
+from smart_library.accounts.models import AppUser, Profile
 
 
 @admin.register(AppUser)
@@ -24,3 +25,23 @@ class AppUserAdmin(UserAdmin):
         }),
     )
     readonly_fields = ('date_joined',)  # Marking date_joined as non-editable
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    # form = ProfileForm
+
+    def thumbnail(self, object):
+        if object.profile_image:
+            return format_html(
+                '<img src="{}" width="50" height="50" style="border-radius: 50px;"/>'.format(object.profile_image.url))
+        else:
+            return '-'
+
+    thumbnail.short_description = 'User Image'
+
+    list_display = ('first_name', 'last_name', 'thumbnail', 'gender', 'profile_image', 'user')
+    list_display_links = ('first_name', 'user')
+    list_filter = ('first_name', 'last_name', 'gender')
+    search_fields = ('first_name', 'last_name', 'gender')
+    ordering = ('user', )

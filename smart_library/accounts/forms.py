@@ -48,3 +48,24 @@ class AppUserLoginForm(AuthenticationForm):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['placeholder'] = 'Enter Username'
         self.fields['password'].widget.attrs['placeholder'] = 'Enter Password'
+
+
+class ProfileEditForm(forms.ModelForm):
+    username = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = Profile
+        fields = ('username', 'email', 'first_name', 'last_name', 'gender', 'profile_image')
+
+    def __init__(self, *args, **kwargs):
+        super(ProfileEditForm, self).__init__(*args, **kwargs)
+        self.fields['username'].initial = self.instance.user.username
+        self.fields['email'].initial = self.instance.user.email
+
+    def save(self, *args, **kwargs):
+        profile = super(ProfileEditForm, self).save(*args, **kwargs)
+        profile.user.username = self.cleaned_data['username']
+        profile.user.email = self.cleaned_data['email']
+        profile.user.save()
+        return profile
