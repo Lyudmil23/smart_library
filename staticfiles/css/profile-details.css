@@ -1,0 +1,57 @@
+.user-profile {
+    margin: 370px auto;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    max-width: 630px;
+    border-radius: 10px;
+}
+
+.user-profile-details {
+    display: flex;
+    gap: 50px;
+    padding: 30px 0 30px 0;
+    margin-left: 20px;
+}
+
+
+.user-profile-info p {
+    font-size: 20px;
+}
+
+.user-profile-buttons {
+    display: flex;
+    justify-content: space-between;
+    /*gap: 145px;*/
+    margin: 20px 30px 35px 30px;
+}
+
+.edit-button {
+    color: white;
+    background-color: #0077ff;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: blue;
+}
+
+.delete-button {
+    color: white;
+    background-color: red;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #ad1010;
+}

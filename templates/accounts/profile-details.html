@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% block title %} | Profile {% endblock %}
+{% load static %}
+{% block page_content %}
+<section class="user-profile">
+    <div class="user-profile-details">
+        <div class="profile-image">
+            {% if profile.profile.profile_image %}
+                <img src="{{ profile.profile.profile_image.url}}"  alt="User Image" class="responsive-img" style="height: 200px;  width:170px;  overflow:hidden;" >
+            {% else %}
+                <img src="{% static 'images/person.png' %}" style="height: 210px; width: 205px">
+            {% endif %}
+        </div>
+        <div class="user-profile-info">
+            <p>Username : {{profile.username }}</p>
+            <p>Email: {{ profile.email }}</p>
+            <p>First name: {{ profile.profile.first_name }}</p>
+            <p>Last name: {{ profile.profile.last_name }}</p>
+            {% if profile.profile.gender %}
+                <p>Gender: {{ profile.profile.gender }}</p>
+            {% endif %}
+            <p>Last Login: {{ profile.last_login }}</p>
+        </div>
+    </div>
+
+    <div class="user-profile-buttons">
+        <div>
+            <a type="button" href="#" class="edit-button">Edit Profile</a>
+        </div>
+        <div>
+            <a type="button" href="#" class="delete-button">Delete Profile</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

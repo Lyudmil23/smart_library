@@ -7,7 +7,7 @@
                 <h1>Welcome to Smart Library</h1>
             </div>
 
-            <form class="user-access-form" method="POST" action="{% url 'register user' %}">
+            <form class="user-access-form" method="POST" action="{% url 'register' %}">
                 {{ form.as_p }}
                 {% csrf_token %}
                 <button type="submit" class="user-access-button">Register</button>

@@ -1,10 +1,12 @@
 from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from smart_library.accounts.forms import AppUserRegistrationForm, AppUserLoginForm
+from smart_library.accounts.models import AppUser
 
 
 class AppUserRegistrationView(CreateView):
@@ -25,4 +27,10 @@ class AppUserLoginView(LoginView):
 
 class AppUserLogoutView(LogoutView):
     next_page = reverse_lazy('home')
+
+
+class AppUserDetailsView(LoginRequiredMixin, DetailView):
+    model = AppUser
+    template_name = 'accounts/profile-details.html'
+    context_object_name = 'profile'
 
