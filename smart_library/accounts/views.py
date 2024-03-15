@@ -2,10 +2,12 @@ from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
+from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from smart_library.accounts.access_mixin import CustomAccessMixin
 from smart_library.accounts.forms import AppUserRegistrationForm, AppUserLoginForm, ProfileEditForm
 from smart_library.accounts.models import AppUser, Profile
 
@@ -30,13 +32,13 @@ class AppUserLogoutView(LogoutView):
     next_page = reverse_lazy('home')
 
 
-class AppUserDetailsView(LoginRequiredMixin, DetailView):
+class AppUserDetailsView(LoginRequiredMixin, CustomAccessMixin, DetailView):
     model = AppUser
     template_name = 'accounts/profile-details.html'
     context_object_name = 'user'
 
 
-class AppUserEditView(LoginRequiredMixin, UpdateView):
+class AppUserEditView(LoginRequiredMixin, CustomAccessMixin, UpdateView):
     model = Profile
     template_name = 'accounts/profile-edit.html'
     form_class = ProfileEditForm
@@ -73,7 +75,7 @@ class AppUserEditView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-class AppUserDeleteView(LoginRequiredMixin, DeleteView):
+class AppUserDeleteView(LoginRequiredMixin, CustomAccessMixin, DeleteView):
     model = AppUser
     template_name = 'accounts/profile-delete.html'
     context_object_name = 'user'

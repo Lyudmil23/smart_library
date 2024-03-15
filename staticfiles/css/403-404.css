@@ -1,0 +1,51 @@
+.handler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.card-handler {
+    width: 350px;
+    background-color: orange;
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-handler i {
+    font-size: 50px;
+    color: red;
+}
+
+.card-title-handler {
+    font-size: 28px;
+}
+
+.card-text-handler {
+    font-size: 20px;
+}
+
+.home-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.home-button:hover {
+    cursor: pointer;
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 900px) {
+    .handler {
+        margin-top: 360px;
+    }
+}
