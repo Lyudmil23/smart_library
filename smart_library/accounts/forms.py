@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator, RegexValidator
 
 from smart_library.accounts.models import AppUser, Profile
@@ -69,3 +70,8 @@ class ProfileEditForm(forms.ModelForm):
         profile.user.email = self.cleaned_data['email']
         profile.user.save()
         return profile
+
+
+
+
+

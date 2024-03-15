@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
@@ -46,9 +47,35 @@ class AppUserEditView(LoginRequiredMixin, UpdateView):
             'pk': self.request.user.pk,
         })
 
+    def form_valid(self, form):
+        new_username = form.cleaned_data.get('username')
+        user = self.request.user
+
+        # Checking if the new username exceeds the maximum length
+        max_length = AppUser._meta.get_field('username').max_length
+        if len(new_username) > max_length:
+            messages.error(self.request, f'Username cannot exceed {max_length} characters.')
+            return self.form_invalid(form)
+
+        # Checking if the new username is unique
+        if AppUser.objects.exclude(pk=user.pk).filter(username=new_username).exists():
+            # If is not unique, we are displaying error message
+            messages.error(self.request, 'This username is already taken. Please choose a different one.')
+            return self.render_to_response(self.get_context_data(form=form))
+
+        # Checking if the new email is unique
+        new_email = form.cleaned_data.get('email')
+        if AppUser.objects.exclude(pk=user.pk).filter(email=new_email).exists():
+            # If is not unique, we are displaying error message
+            messages.error(self.request, 'This email is already taken. Please choose a different one.')
+            return self.render_to_response(self.get_context_data(form=form))
+
+        return super().form_valid(form)
+
 
 class AppUserDeleteView(LoginRequiredMixin, DeleteView):
     model = AppUser
     template_name = 'accounts/profile-delete.html'
     context_object_name = 'user'
     success_url = reverse_lazy('home')
+
