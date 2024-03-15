@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator, RegexValidator
 
@@ -70,6 +70,29 @@ class ProfileEditForm(forms.ModelForm):
         profile.user.email = self.cleaned_data['email']
         profile.user.save()
         return profile
+
+
+class ChangePasswordForm(PasswordChangeForm):
+    class Meta:
+        model = AppUser
+        fields = ('old_password', 'new_password1', 'new_password2')
+
+    old_password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'Enter your old password'}
+        )
+    )
+    new_password1 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'Enter your new password'}
+        )
+    )
+    new_password2 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'Confirm your new password'}
+        )
+    )
+
 
 
 

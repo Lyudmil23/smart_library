@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 from smart_library.accounts.views import AppUserRegistrationView, AppUserLoginView, AppUserLogoutView, \
-    AppUserDetailsView, AppUserEditView, AppUserDeleteView
+    AppUserDetailsView, AppUserEditView, AppUserDeleteView, ChangePassword
 
 urlpatterns = [
     path('register/', AppUserRegistrationView.as_view(), name='register'),
@@ -13,5 +13,7 @@ urlpatterns = [
         path('edit/', AppUserEditView.as_view(), name='profile edit'),
         path('delete/', AppUserDeleteView.as_view(), name='profile delete'),
     ])),
+
+    path('change_password/', ChangePassword.as_view(), name='change password'),
 
 ]

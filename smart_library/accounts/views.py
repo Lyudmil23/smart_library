@@ -1,14 +1,14 @@
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from smart_library.accounts.access_mixin import CustomAccessMixin
-from smart_library.accounts.forms import AppUserRegistrationForm, AppUserLoginForm, ProfileEditForm
+from smart_library.accounts.forms import AppUserRegistrationForm, AppUserLoginForm, ProfileEditForm, ChangePasswordForm
 from smart_library.accounts.models import AppUser, Profile
 
 
@@ -80,4 +80,11 @@ class AppUserDeleteView(LoginRequiredMixin, CustomAccessMixin, DeleteView):
     template_name = 'accounts/profile-delete.html'
     context_object_name = 'user'
     success_url = reverse_lazy('home')
+
+
+class ChangePassword(LoginRequiredMixin, PasswordChangeView):
+    template_name = 'accounts/change-password.html'
+    form_class = ChangePasswordForm
+    success_url = reverse_lazy('home')
+
 
