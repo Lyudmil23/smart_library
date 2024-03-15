@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import MinLengthValidator
@@ -101,3 +103,15 @@ class Profile(models.Model):
         primary_key=True,
         on_delete=models.CASCADE,
     )
+
+    def save(self, *args, **kwargs):
+        try:
+            existing_profile = Profile.objects.get(pk=self.pk)
+            if existing_profile.profile_image != self.profile_image:
+                # If profile exists and profile image is updated, we are deleting the old image
+                if existing_profile.profile_image:
+                    os.remove(existing_profile.profile_image.path)
+        except Profile.DoesNotExist:
+            pass
+
+        super().save(*args, **kwargs)
