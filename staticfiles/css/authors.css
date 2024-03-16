@@ -4,8 +4,9 @@
     align-items: center;
     justify-content: center;
 }
-#authors-list {
-    margin: 170px 0 80px 50px;
+
+#common-list {
+    margin: 170px 0 80px 0;
     display: flex;
     gap: 70px;
     flex-wrap: wrap;
@@ -50,21 +51,15 @@
     text-transform: capitalize;
 }
 
-@media screen and (max-width: 1378px) {
-  .pagination {
-    margin-left: 100px;
-    margin-bottom: 100px;
-  }
-}
 
 @media screen and (max-width: 900px) {
-    #authors-list {
+    #common-list {
         margin-top: 250px;
     }
 }
 
 @media screen and (max-width: 710px) {
-    #authors-list {
+    #common-list {
         margin-top: 400px;
     }
 }

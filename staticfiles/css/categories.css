@@ -1,0 +1,14 @@
+.category-container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: lightgreen;
+    width: 550px;
+    border-radius: 12px;
+}
+
+.category-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+}

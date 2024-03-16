@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% block title %} | Categories{% endblock %}
+{% block page_content %}
+
+<section class="common">
+    <div id="common-list">
+        {% for category in categories_list %}
+        <div class="category-container">
+            <div class="category-details">
+                <p><b>Category:</b> {{ category.name }}</p>
+                <p><b>Created At:</b> {{ category.created_at }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% include 'paginator.html' %}
+</section>
+
+
+
+{% endblock %}

@@ -6,7 +6,7 @@ from smart_library.authors.models import Author
 
 class AuthorsListView(ListView):
     model = Author
-    template_name = 'authors/authors_list.html'
+    template_name = 'authors/authors.html'
     context_object_name = 'authors_list'
     paginate_by = 12
 
