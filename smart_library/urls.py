@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('smart_library.common.urls')),
     path('accounts/', include('smart_library.accounts.urls')),
+    path('authors/', include('smart_library.authors.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
