@@ -1,3 +1,6 @@
+import datetime
+
+from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
 from django.db import models
 
@@ -36,6 +39,12 @@ class Author(models.Model):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+
+    def clean(self):
+        current_date = datetime.date.today()
+        if self.date_of_birth > current_date:
+            raise ValidationError("Birthday cannot be in the future.")
+        super().clean()
 
     class Meta:
         unique_together = ('first_name', 'last_name', )
