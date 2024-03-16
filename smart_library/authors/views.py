@@ -8,3 +8,6 @@ class AuthorsListView(ListView):
     model = Author
     template_name = 'authors/authors_list.html'
     context_object_name = 'authors_list'
+    paginate_by = 12
+
+

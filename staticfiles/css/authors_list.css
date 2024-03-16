@@ -1,8 +1,15 @@
+.common {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 #authors-list {
     margin: 170px 0 80px 50px;
     display: flex;
     gap: 70px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .author-container {
@@ -21,3 +28,43 @@
     font-size: 22px;
 }
 
+
+.pagination {
+    margin: 100px 0 70px 0;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 380px;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.first-last {
+    color: blue;
+    text-transform: capitalize;
+}
+
+.between {
+    color: red;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 1378px) {
+  .pagination {
+    margin-left: 100px;
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+    #authors-list {
+        margin-top: 250px;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    #authors-list {
+        margin-top: 400px;
+    }
+}
