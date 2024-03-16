@@ -7,8 +7,6 @@ import smart_library.core.validators
 
 class Migration(migrations.Migration):
 
-    initial = True
-
     dependencies = [
         ('authors', '0001_initial'),
     ]

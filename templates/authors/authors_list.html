@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+
+
+<div id="authors-list">
+    {% for author in authors_list %}
+    <div class="author-container">
+        <div class="author-details">
+            <p><b>Author:</b> {{ author.first_name }} {{ author.last_name }}</p>
+            <p><b>Date of Birth:</b> {{ author.date_of_birth }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
