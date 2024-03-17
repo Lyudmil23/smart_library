@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'smart_library.accounts',
     'smart_library.authors',
     'smart_library.categories',
+    'smart_library.books',
 
 ]
 

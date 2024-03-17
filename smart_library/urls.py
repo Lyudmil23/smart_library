@@ -25,6 +25,7 @@ urlpatterns = [
     path('accounts/', include('smart_library.accounts.urls')),
     path('authors/', include('smart_library.authors.urls')),
     path('categories/', include('smart_library.categories.urls')),
+    path('books/', include('smart_library.books.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
