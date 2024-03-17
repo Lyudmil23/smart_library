@@ -39,6 +39,7 @@
     padding: 20px;
     font-size: 22px;
     font-weight: bold;
+    border-radius: 10px;
 }
 
 .first-last {
@@ -53,13 +54,13 @@
 
 
 @media screen and (max-width: 900px) {
-    #common-list {
+    .common-list {
         margin-top: 250px;
     }
 }
 
 @media screen and (max-width: 710px) {
-    #common-list {
+    .common-list {
         margin-top: 400px;
     }
 }

@@ -15,6 +15,12 @@
     justify-content: center;
 }
 
+.book-info img {
+    height: 205px;
+    width: 200px;
+    border-radius: 10px;
+}
+
 #book-title {
     margin-top: 35px;
 }
