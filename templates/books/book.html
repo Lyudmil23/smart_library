@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block title %} | {{ book.book_title }}{% endblock %}
+{% block page_content %}
+
+<section class="book-section">
+    <div class="book-information">
+        <div class="book-information1">
+            <div class="book-image">
+                <img src="{{book.book_image.url}}"  alt="Book Image">
+            </div>
+            <div class="more-info">
+                <p>Title: {{ book.book_title }}</p>
+                <p><strong>Description:</strong> {{book.description}}</p>
+                <p><strong>Author:</strong> {{ book.author.first_name }} {{ book.author.last_name }}</p>
+                <p><strong>Category:</strong> {{ book.category.name }}</p>
+                <p><strong>Price:</strong> {{ book.price|floatformat:2 }}<p>
+                <p><strong>Serial:</strong> {{ book.serial }}</p>
+                <p><strong>ID:</strong> {{ book.id }}</p>
+                <p><strong>Rate:</strong> </p>
+            </div>
+        </div>
+
+        {% if request.user.is_authenticated %}
+            <a type="button" class="rent-button" href="#">Rent now</a>
+        {% endif %}
+    </div>
+</section>
+
+
+{% endblock %}
