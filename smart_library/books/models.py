@@ -1,3 +1,5 @@
+import uuid
+
 from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
 
@@ -61,3 +63,13 @@ class Book(models.Model):
 
     def __str__(self):
         return self.book_title
+
+    def save(self, *args, **kwargs):
+        if not self.serial:
+            while True:
+                serial = uuid.uuid4().hex[:12].upper()
+                if not Book.objects.filter(serial=serial).exists():
+                    break
+            self.serial = serial
+
+        super().save(*args, **kwargs)
