@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+{% block title %} | Books{% endblock %}
+{% block page_content %}
+
+<section class="common">
+    <div class="common-list">
+        {% for book in books %}
+        <div class="book-card">
+            <h1 id="book-title"><a href="#">{{ book.book_title }}</a></h1>
+            <div class="book-info">
+                <img src="{{ book.book_image.url }}" alt="Book Image" style="height: 205px;  width:180px;  overflow:hidden;">
+                <div class="book-details">
+                    <p><strong>Author:</strong> {{ book.author.first_name }} {{ book.author.last_name }}</p>
+                    <p><strong>Category:</strong> {{ book.category.name }}</p>
+                    <p><strong>Price:</strong> {{ book.price|floatformat:2 }}<p>
+                    <p><strong>Serial:</strong> {{ book.serial }}</p>
+                    <p><strong>ID:</strong> {{ book.id }}</p>
+                    <p><strong>Rate:</strong> </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    {% include 'paginator.html' %}
+</section>
+
+
+{% endblock %}

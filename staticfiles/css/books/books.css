@@ -1,0 +1,33 @@
+.book-card {
+    width: 550px;
+    height: 380px;
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    border-radius: 14px;
+}
+
+.book-info {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+#book-title {
+    margin-top: 35px;
+}
+
+#book-title a {
+    text-decoration: none;
+    color: blue
+}
+
+#book-title a:hover {
+    color: red;
+}
+
+.book-details p {
+    font-size: 22px;
+}
