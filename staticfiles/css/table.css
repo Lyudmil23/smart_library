@@ -27,6 +27,7 @@ table tr:nth-child(odd) {
     height: 130px;
     background-color: white;
     margin: 350px auto;
+    border-radius: 10px;
 }
 
 .no-rents h1 {
@@ -35,6 +36,24 @@ table tr:nth-child(odd) {
     font-weight: bold;
     padding: 30px;
     text-align: center;
+}
+
+@media screen and (max-width: 1450px) {
+    table {
+        margin-top: 145px;
+    }
+}
+
+@media screen and (max-width: 898px) {
+    table {
+        margin-top: 208px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    table {
+        margin-top: 370px;
+    }
 }
 
 @media screen and (max-width: 680px) {

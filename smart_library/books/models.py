@@ -1,5 +1,7 @@
+import datetime
 import uuid
 
+from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
 
@@ -93,6 +95,14 @@ class RentBook(models.Model):
     )
     period_start = models.DateField()
     period_end = models.DateField()
+
+    def clean(self):
+        current_date = datetime.date.today()
+        if self.period_start < current_date:
+            raise ValidationError("Period start cannot be a date earlier than today.")
+        if self.period_start > self.period_end:
+            raise ValidationError("Period start cannot be later than Period end.")
+        super().clean()
 
     def __str__(self):
         return self.user.username
