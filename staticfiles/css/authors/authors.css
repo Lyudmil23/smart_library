@@ -30,12 +30,27 @@
 }
 
 
+.author-details ul li {
+    font-size: 20px;
+    color: red;
+}
+
+.author-details ul li a {
+    text-decoration: none;
+    color: #0077ff;
+}
+
+.author-details ul li a:hover {
+    color: blue;
+}
+
+
 .pagination {
     margin: 100px 0 70px 0;
     display: flex;
     justify-content: center;
     background-color: white;
-    width: 380px;
+    max-width: 480px;
     padding: 20px;
     font-size: 22px;
     font-weight: bold;

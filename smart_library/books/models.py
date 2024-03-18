@@ -73,3 +73,6 @@ class Book(models.Model):
             self.serial = serial
 
         super().save(*args, **kwargs)
+
+    class Meta:
+        ordering = ('id', )
