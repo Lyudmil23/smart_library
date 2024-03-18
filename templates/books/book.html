@@ -21,7 +21,7 @@
         </div>
 
         {% if request.user.is_authenticated %}
-            <a type="button" class="rent-button" href="#">Rent now</a>
+            <a type="button" class="rent-button" href="{% url 'rent book' pk=book.pk %}">Rent now</a>
         {% endif %}
     </div>
 </section>

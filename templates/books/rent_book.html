@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+
+<section class="rent-book">
+<h1>You are going to rent - <strong style="color: blue">({{ book.book_title }})</strong> book</h1>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method="POST" action="{% url 'rent book' pk=book.pk %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="rent-button">Rent now</button>
+</form>
+</section>
+
+<script>
+setTimeout(function() {
+    let messageList = document.getElementsByClassName('messages')[0]
+    while (messageList.firstChild) {
+        messageList.removeChild(messageList.firstChild);
+    }
+    messageList.style.display = 'none';
+}, 5000);
+</script>
+{% endblock %}
