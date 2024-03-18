@@ -3,6 +3,7 @@ import uuid
 from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
 
+from smart_library.accounts.models import AppUser
 from smart_library.authors.models import Author
 from smart_library.categories.models import Category
 from smart_library.core.validators import validate_book_name
@@ -76,3 +77,22 @@ class Book(models.Model):
 
     class Meta:
         ordering = ('id', )
+
+
+class RentBook(models.Model):
+    user = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+    )
+    book = models.ForeignKey(
+        Book,
+        on_delete=models.CASCADE,
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+    period_start = models.DateField()
+    period_end = models.DateField()
+
+    def __str__(self):
+        return self.user.username
