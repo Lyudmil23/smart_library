@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+
+{% if rented_books %}
+    <table>
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>Book</th>
+              <th>Author</th>
+              <th>Price</th>
+              <th>Start</th>
+              <th>End</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rented_book in rented_books %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td><a href="{% url 'book details' pk=rented_book.book.pk %}">{{ rented_book.book.book_title }}</a></td>
+                <td>{{ rented_book.book.author.first_name }} {{ rented_book.book.author.last_name }}</td>
+                <td>{{ rented_book.book.price }}</td>
+                <td>{{ rented_book.period_start }}</td>
+                <td>{{ rented_book.period_end }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="no-rents">
+           <h1>You did not rent a book yet!</h1>
+    </div>
+{% endif %}
+
+{% endblock %}

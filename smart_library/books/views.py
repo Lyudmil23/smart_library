@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, TemplateView
 
@@ -46,10 +47,19 @@ def rent_book(request, pk, *args, **kwargs):
                 rent_book.user = request.user
                 rent_book.book = book
                 rent_book.save()
-                return redirect('home')
+                return redirect('rented books')
 
     context = {
         'book': book,
         'form': form,
     }
     return render(request, "books/rent_book.html", context)
+
+
+class RentedBooksView(LoginRequiredMixin, ListView):
+    model = RentBook
+    template_name = 'books/rented_books.html'
+    context_object_name = 'rented_books'
+
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
