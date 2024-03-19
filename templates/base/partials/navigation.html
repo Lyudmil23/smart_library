@@ -21,7 +21,7 @@
             </li>
             {% if request.user.is_authenticated %}
                 <li>
-                    <a href="#">My reviews</a>
+                    <a href="{% url 'reviews' %}">My reviews</a>
                 </li>
                 <li>
                     <a href="{% url 'rented books' %}">My rents</a>

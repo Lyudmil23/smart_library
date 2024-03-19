@@ -16,7 +16,7 @@
 <form method="POST" action="{% url 'rent book' pk=book.pk %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
-    <button type="submit" class="rent-button">Rent now</button>
+    <button type="submit" class="rent-review-button">Rent now</button>
 </form>
 </section>
 

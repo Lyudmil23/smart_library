@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% block title %} | My reviews{% endblock %}
+{% block page_content %}
+
+{% if reviews %}
+<table>
+    <thead>
+        <tr>
+          <th>#</th>
+          <th>User</th>
+          <th>Book</th>
+          <th>Rate</th>
+          <th>Comment</th>
+          <th>Created At</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for review in reviews %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{ review.user.username }}</td>
+            <td><a href="{% url 'book details' pk=review.book.pk %}">{{ review.book.book_title}}</a></td>
+            <td>{{ review.rate }}</td>
+            <td>{{ review.comment }}</td>
+            <td>{{ review.created_at }}</td>
+            <td><a class="button-delete-review">Delete</a></td>
+            <td><a class="button-edit-review">Edit</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <div style="width: 700px; height: 130px; background-color: white; margin: 350px auto">
+           <h1 style="font-weight: bold; color: green; padding: 30px; text-align: center; font-size: 35px">You did not leave a review yet!</h1>
+   </div>
+{% endif %}
+
+{% endblock %}

@@ -1,11 +1,14 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Avg
+from django.db.models.functions import Coalesce
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, TemplateView
 
 from smart_library.books.forms import RentBookForm
 from smart_library.books.models import Book, RentBook
+from smart_library.reviews.models import Review
 
 
 class BooksView(ListView):
@@ -14,6 +17,10 @@ class BooksView(ListView):
     context_object_name = 'books'
     paginate_by = 6
 
+    def get_queryset(self):
+        books_average_rate = Book.objects.prefetch_related("reviews").annotate(avg_rate=Coalesce(Avg('reviews__rate'), 0.0)).all().order_by("created_at")
+        return books_average_rate
+
 
 class BookDetailsView(TemplateView):
     template_name = 'books/book.html'
@@ -21,8 +28,13 @@ class BookDetailsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         book = get_object_or_404(Book, pk=kwargs['pk'])
+        reviews = Review.objects.filter(book_id=book.id).all()
+
+        book_average_rate = Book.objects.filter(id=book.id).prefetch_related("reviews").annotate(avg_rate=Coalesce(Avg('reviews__rate'), 0.0)).first().avg_rate
         context.update({
             'book': book,
+            'reviews': reviews,
+            'avg_rate': book_average_rate,
         })
 
         return context

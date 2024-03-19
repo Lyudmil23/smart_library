@@ -15,7 +15,7 @@
                     <p><strong>Price:</strong> {{ book.price|floatformat:2 }}<p>
                     <p><strong>Serial:</strong> {{ book.serial }}</p>
                     <p><strong>ID:</strong> {{ book.id }}</p>
-                    <p><strong>Rate:</strong> </p>
+                    <p><strong>Rate: {{ book.avg_rate|floatformat:2 }}</strong> </p>
                 </div>
             </div>
         </div>
