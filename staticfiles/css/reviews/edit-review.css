@@ -1,0 +1,43 @@
+.form-review-edit {
+    margin: 250px auto;
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.form-review-edit label {
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 15px;
+}
+.form-review-edit textarea {
+    border-radius: 10px;
+    width: 400px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+.form-review-edit input {
+    border-radius: 10px;
+    width: 400px;
+    padding: 5px;
+}
+
+.form-review-edit button {
+    color: white;
+    background-color: #0077ff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    margin: 25px 0 45px 0;
+
+}
+
+.form-review-edit button:hover {
+    cursor: pointer;
+    background-color: #0033ff;
+}
