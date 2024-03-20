@@ -72,6 +72,20 @@ body {
     margin-right: 20px;
 }
 
+.top-books {
+    display: flex;
+    flex-direction: column;
+    margin: 200px auto;
+    align-items: center;
+}
+
+.top-3-books {
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+
 .footer {
     width: 100%;
     background-color: orange;
@@ -81,4 +95,9 @@ body {
     font-weight: bold;
 }
 
-
+@media screen and (max-width: 910px) {
+    .top-books {
+        margin-top: 370px;
+    }
+    
+}

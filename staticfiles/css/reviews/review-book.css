@@ -36,9 +36,11 @@
 
 .form-review textarea {
     border-radius: 10px;
+    padding: 4px;
 }
 
 .form-review input {
     border-radius: 8px;
     width: 350px;
+    padding: 4px;
 }
