@@ -22,7 +22,20 @@ table tr:nth-child(odd) {
     background-color: #ffffff;
 }
 
-.no-rents {
+table tr td .button-edit-review {
+    background-color: #0077ff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+table tr td .button-edit-review:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+.no-rents-reviews {
     max-width: 700px;
     height: 130px;
     background-color: white;
@@ -30,7 +43,7 @@ table tr:nth-child(odd) {
     border-radius: 10px;
 }
 
-.no-rents h1 {
+.no-rents-reviews h1 {
     color: green;
     font-size: 35px;
     font-weight: bold;
@@ -57,7 +70,7 @@ table tr:nth-child(odd) {
 }
 
 @media screen and (max-width: 680px) {
-    .no-rents {
+    .no-rents-reviews {
         margin-top: 500px;
     }
     

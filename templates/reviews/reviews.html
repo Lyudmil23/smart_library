@@ -26,15 +26,15 @@
             <td>{{ review.comment }}</td>
             <td>{{ review.created_at }}</td>
             <td><a class="button-delete-review">Delete</a></td>
-            <td><a class="button-edit-review">Edit</a></td>
+            <td><a class="button-edit-review" href="{% url 'edit review' pk=review.pk %}">Edit</a></td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
 {% else %}
-    <div style="width: 700px; height: 130px; background-color: white; margin: 350px auto">
-           <h1 style="font-weight: bold; color: green; padding: 30px; text-align: center; font-size: 35px">You did not leave a review yet!</h1>
-   </div>
+    <div class="no-rents-reviews">
+        <h1>You did not leave a review yet!</h1>
+    </div>
 {% endif %}
 
 {% endblock %}

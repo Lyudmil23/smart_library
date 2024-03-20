@@ -1,8 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, UpdateView
 
 from smart_library.books.models import Book
 from smart_library.reviews.forms import ReviewBookForm
@@ -44,3 +46,16 @@ class ReviewBooksView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return super().get_queryset().filter(user=self.request.user)
+
+
+class ReviewEditView(LoginRequiredMixin, UpdateView):
+    model = Review
+    template_name = "reviews/edit_review.html"
+    fields = ('comment', 'rate')
+    success_url = reverse_lazy('reviews')
+
+    def get_object(self, queryset=None):
+        review = super().get_object()
+        if review.user != self.request.user:
+            raise PermissionDenied
+        return review
