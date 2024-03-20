@@ -4,11 +4,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView, UpdateView, DeleteView
 
 from smart_library.books.models import Book
 from smart_library.reviews.forms import ReviewBookForm
 from smart_library.reviews.models import Review
+from smart_library.reviews.permission_mixin import PermissionRequiredMixin
 
 
 @login_required
@@ -48,14 +49,15 @@ class ReviewBooksView(LoginRequiredMixin, ListView):
         return super().get_queryset().filter(user=self.request.user)
 
 
-class ReviewEditView(LoginRequiredMixin, UpdateView):
+class ReviewEditView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Review
     template_name = "reviews/edit_review.html"
     fields = ('comment', 'rate')
     success_url = reverse_lazy('reviews')
 
-    def get_object(self, queryset=None):
-        review = super().get_object()
-        if review.user != self.request.user:
-            raise PermissionDenied
-        return review
+
+class ReviewDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    model = Review
+    template_name = "reviews/delete_review.html"
+    success_url = reverse_lazy('reviews')
+
