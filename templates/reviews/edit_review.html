@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% block title %} | Edit Review{% endblock %}
 {% block page_content %}
-<form class="form-review-edit" method="POST" action="{% url 'edit review' pk=review.pk %}">
+<form class="form-edit-review" method="POST" action="{% url 'edit review' pk=review.pk %}">
     {% csrf_token %}
     {{ form }}
     <button type="submit">Update data</button>

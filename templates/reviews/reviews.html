@@ -25,7 +25,7 @@
             <td>{{ review.rate }}</td>
             <td>{{ review.comment }}</td>
             <td>{{ review.created_at }}</td>
-            <td><a class="button-delete-review">Delete</a></td>
+            <td><a class="button-delete-review" href="{% url 'delete review' pk=review.pk %}">Delete</a></td>
             <td><a class="button-edit-review" href="{% url 'edit review' pk=review.pk %}">Edit</a></td>
         </tr>
     {% endfor %}

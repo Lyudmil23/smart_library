@@ -1,4 +1,4 @@
-.form-review-edit {
+.form-edit-review {
     margin: 250px auto;
     background-color: lightgreen;
     display: flex;
@@ -8,24 +8,24 @@
     border-radius: 10px;
 }
 
-.form-review-edit label {
+.form-edit-review label {
     font-weight: bold;
     font-size: 20px;
     padding-top: 15px;
 }
-.form-review-edit textarea {
+.form-edit-review textarea {
     border-radius: 10px;
     width: 400px;
     padding: 5px;
     margin-bottom: 20px;
 }
-.form-review-edit input {
+.form-edit-review input {
     border-radius: 10px;
     width: 400px;
     padding: 5px;
 }
 
-.form-review-edit button {
+.form-edit-review button {
     color: white;
     background-color: #0077ff;
     font-size: 18px;
@@ -37,7 +37,13 @@
 
 }
 
-.form-review-edit button:hover {
+.form-edit-review button:hover {
     cursor: pointer;
     background-color: #0033ff;
+}
+
+@media  screen and (max-width: 890px) {
+    .form-edit-review {
+        margin-top: 400px;
+    }
 }
