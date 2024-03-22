@@ -20,7 +20,7 @@
             <tr>
                 <th scope="row">{{forloop.counter}}</th>
                 <td>{{ rented_book.user.username }}</td>
-                <td><a href="{% url 'book details' pk=rented_book.book.pk %}">{{ rented_book.book.book_title }}</a></td>
+                <td><a class="book-table-details" href="{% url 'book details' pk=rented_book.book.pk %}">{{ rented_book.book.book_title }}</a></td>
                 <td>{{ rented_book.book.author.first_name }} {{ rented_book.book.author.last_name }}</td>
                 <td>{{ rented_book.book.price }}</td>
                 <td>{{ rented_book.period_start }}</td>

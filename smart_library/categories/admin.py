@@ -8,4 +8,4 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at')
     list_filter = ('name', )
     search_fields = ('name', )
-    ordering = ('name', )
+    ordering = ('id', )

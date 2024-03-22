@@ -15,20 +15,21 @@
                 <p><strong>Category:</strong> {{ book.category.name }}</p>
                 <p><strong>Price:</strong> {{ book.price|floatformat:2 }}<p>
                 <p><strong>Serial:</strong> {{ book.serial }}</p>
-                <p><strong>ID:</strong> {{ book.id }}</p>
+{#                <p><strong>ID:</strong> {{ book.id }}</p>#}
                 <p><strong>Rate: {{ avg_rate|floatformat:2 }}</strong> </p>
             </div>
         </div>
 
         {% if request.user.is_authenticated %}
             <div style="display: flex; gap: 20px">
-                <a type="button" class="rent-review-button" href="{% url 'rent book' pk=book.pk %}">Rent now</a>
+                <a type="button" class="rent-review-button" href="{% url 'rent book' pk=book.pk %}">Rent Book</a>
                 <a type="button" class="rent-review-button" href="{% url 'review book' pk=book.pk %}">Review Book</a>
             </div>
         {% endif %}
     </div>
 
     <div class="reviews">
+    {% if reviews %}
         <h1>All reviews</h1>
         {% for review in reviews %}
         <div class="review">
@@ -42,6 +43,9 @@
             </div>
         </div>
         {% endfor %}
+    {% else %}
+        <h1>The book does not have any reviews, yet</h1>
+    {% endif %}
     </div>
 </section>
 

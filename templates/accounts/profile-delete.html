@@ -6,11 +6,11 @@
         <form class="profile-delete-form" action="{% url 'profile delete' pk=user.pk %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
             <h1>Are you sure you want to delete your profile?</h1>
-            <div>
+            <div class="profile-image">
             {% if user.profile.profile_image %}
-                <img src="{{ user.profile.profile_image.url}}"  alt="User Image" class="responsive-img" style="height: 200px;  width:170px;  overflow:hidden;" >
+                <img src="{{ user.profile.profile_image.url}}"  alt="User Image">
             {% else %}
-                <img src="{% static 'images/person.png' %}" style="height: 150px; width: 155px">
+                <img src="{% static 'images/person.png' %}">
             {% endif %}
             </div>
             <h2>Username: {{ user.username }}</h2>

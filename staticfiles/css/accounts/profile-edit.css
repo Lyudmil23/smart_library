@@ -48,7 +48,7 @@
 
 .edit:hover {
     cursor: pointer;
-    background-color: blue;
+    background-color: #0033ff;
 }
 
 .messages {

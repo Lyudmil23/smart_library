@@ -22,6 +22,16 @@ table tr:nth-child(odd) {
     background-color: #ffffff;
 }
 
+.book-table-details {
+    text-decoration: none;
+    color: blue;
+    /*font-size: 18px;*/
+}
+
+.book-table-details:hover {
+    color: red;
+}
+
 table tr td .button-delete-review {
     background-color: red;
     color: white;

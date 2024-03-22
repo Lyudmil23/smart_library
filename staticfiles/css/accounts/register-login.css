@@ -54,9 +54,8 @@
 
 .user-access-button:hover {
     cursor: pointer;
-    background-color: blue;
+    background-color: #0033ff;
 }
-
 
 @media screen and (max-width: 1158px) {
     .register {

@@ -68,13 +68,13 @@
 }
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 915px) {
     .common-list {
         margin-top: 250px;
     }
 }
 
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 761px) {
     .common-list {
         margin-top: 400px;
     }

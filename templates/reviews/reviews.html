@@ -21,7 +21,7 @@
         <tr>
             <th scope="row">{{forloop.counter}}</th>
             <td>{{ review.user.username }}</td>
-            <td><a href="{% url 'book details' pk=review.book.pk %}">{{ review.book.book_title}}</a></td>
+            <td><a class="book-table-details" href="{% url 'book details' pk=review.book.pk %}">{{ review.book.book_title}}</a></td>
             <td>{{ review.rate }}</td>
             <td>{{ review.comment }}</td>
             <td>{{ review.created_at }}</td>

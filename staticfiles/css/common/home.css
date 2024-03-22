@@ -85,6 +85,13 @@ body {
     border-radius: 10px;
 }
 
+.errorlist {
+    color: red;
+    font-weight: bold;
+    list-style-type: none;
+    font-size: 18px;
+}
+
 
 .footer {
     width: 100%;

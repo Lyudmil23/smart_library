@@ -1,6 +1,6 @@
 .user-profile {
     margin: 350px auto;
-    background-color: green;
+    background-color: lightgreen;
     display: flex;
     flex-direction: column;
     max-width: 630px;
@@ -22,6 +22,7 @@
 .profile-image img {
     height: 100%;
     width: 100%;
+    border-radius: 10px;
 }
 
 
@@ -47,7 +48,7 @@
 }
 
 .edit-button:hover {
-    background-color: blue;
+    background-color: #0033ff;
 }
 
 .delete-button {

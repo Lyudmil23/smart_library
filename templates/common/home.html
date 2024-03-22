@@ -10,7 +10,9 @@
             <div class="book-card">
                 <h1 id="book-title"><a href="{% url 'book details' pk=book.pk %}">{{ book.book_title }}</a></h1>
                 <div class="book-info">
-                    <img src="{{ book.book_image.url }}" alt="Book Image">
+                    <a href="{% url 'book details' pk=book.pk%}">
+                        <img src="{{ book.book_image.url }}" alt="Book Image">
+                    </a>
                     <div class="book-details">
                         <p><strong>Author:</strong> {{ book.author.first_name }} {{ book.author.last_name }}</p>
                         <p><strong>Category:</strong> {{ book.category.name }}</p>

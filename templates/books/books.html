@@ -8,13 +8,15 @@
         <div class="book-card">
             <h1 id="book-title"><a href="{% url 'book details' pk=book.pk %}">{{ book.book_title }}</a></h1>
             <div class="book-info">
-                <img src="{{ book.book_image.url }}" alt="Book Image">
+                <a href="{% url 'book details' pk=book.pk%}">
+                    <img src="{{ book.book_image.url }}" alt="Book Image">
+                </a>
                 <div class="book-details">
                     <p><strong>Author:</strong> {{ book.author.first_name }} {{ book.author.last_name }}</p>
                     <p><strong>Category:</strong> {{ book.category.name }}</p>
                     <p><strong>Price:</strong> {{ book.price|floatformat:2 }}<p>
                     <p><strong>Serial:</strong> {{ book.serial }}</p>
-                    <p><strong>ID:</strong> {{ book.id }}</p>
+{#                    <p><strong>ID:</strong> {{ book.id }}</p>#}
                     <p><strong>Rate: {{ book.avg_rate|floatformat:2 }}</strong> </p>
                 </div>
             </div>
