@@ -54,7 +54,7 @@ body {
     background-color: orange;
 }
 
-.navigation-links li:hover {
+.navigation-links li:not(.no-hover):hover {
     cursor: pointer;
     background-color: #ff7300;
 }
@@ -66,6 +66,11 @@ body {
 
 .navigation-links li:hover a {
     color: white;
+}
+
+.navigation-links .active {
+    background-color: #ff7300;
+
 }
 
 .right-part {

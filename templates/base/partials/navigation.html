@@ -10,20 +10,20 @@
         </div>
 
         <ul class="navigation-links">
-            <li>
+            <li class="{% if request.resolver_match.url_name == 'books' %}active{% endif %}">
                 <a href="{% url 'books' %}">Books</a>
             </li>
-            <li>
+            <li class="{% if request.resolver_match.url_name == 'categories' %}active{% endif %}">
                 <a href="{% url 'categories' %}">Categories</a>
             </li>
-            <li>
+            <li class="{% if request.resolver_match.url_name == 'authors' %}active{% endif %}">
                 <a href="{% url 'authors' %}">Authors</a>
             </li>
             {% if request.user.is_authenticated %}
-                <li>
+                <li class="{% if request.resolver_match.url_name == 'reviews' %}active{% endif %}">
                     <a href="{% url 'reviews' %}">My reviews</a>
                 </li>
-                <li>
+                <li class="{% if request.resolver_match.url_name == 'rented books' %}active{% endif %}">
                     <a href="{% url 'rented books' %}">My rents</a>
                 </li>
             {% endif %}
@@ -33,13 +33,13 @@
     <ul class="right-part">
         {% if request.user.is_authenticated %}
         <ul class="navigation-links">
-            <li>
+            <li class="no-hover">
                 <span>Hello, {{ request.user.username }}</span>
             </li>
-            <li>
+            <li class="{% if request.resolver_match.url_name == 'profile details' %}active{% endif %}">
                 <a href="{% url 'profile details' pk=request.user.pk %}">Profile</a>
             </li>
-            <li>
+            <li class="{% if request.resolver_match.url_name == 'change password' %}active{% endif %}">
                 <a href="{% url 'change password' %}">Change Password</a>
             </li>
             <li>
@@ -48,10 +48,10 @@
         </ul>
         {% else %}
         <ul class="navigation-links">
-            <li>
+            <li class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">
                 <a href="{% url 'login' %}">Login</a>
             </li>
-            <li>
+            <li class="{% if request.resolver_match.url_name == 'register' %}active{% endif %}">
                 <a href="{% url 'register' %}">Register</a>
             </li>
         </ul>

@@ -1,6 +1,7 @@
 .profile {
     margin: 180px auto;
-    background-color: green;
+    /*background-color: lightgreen;*/
+    background: linear-gradient(to right, #98FB98, #00FF00);
     display: flex;
     max-width: 500px;
     border-radius: 10px;
@@ -26,7 +27,7 @@
 }
 .form input{
     border-radius: 8px;
-    background-color: lightgreen;
+    background-color: #ffffff;
     height: 43px;
     width: 100%;
     border: none;
