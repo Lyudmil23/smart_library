@@ -5,13 +5,18 @@
 <section class="common">
     <div class="common-list">
         {% for category in categories %}
-        <div class="category-container">
-            <div class="category-details">
-                <p><b>Category:</b> {{ category.name }}</p>
+        <div class="author-category-container">
+            <div class="author-category-details">
+                <p><strong>Category:</strong> {{ category.name }}</p>
                 <h5>Books:</h5>
                 <ul>
                     {% for book in category.book_set.all %}
-                      <li><a href="{% url 'book details' pk=book.pk %}">{{ book.book_title }}</a></li>
+                        <li>
+                            <a href="{% url 'book details' pk=book.pk%}">
+                                <img src="{{ book.book_image.url }}" alt="{{ book.book_title }} Image">
+                            </a>
+                        </li>
+
                     {% empty %}
                         <li>We are sorry, there are currently no books available in this category. Please check back later as we are constantly
                             updating our library with new titles. In the meantime, feel free to explore our other categories for exciting reads!"</li>

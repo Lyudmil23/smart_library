@@ -1,9 +1,14 @@
 {% extends 'base/base.html' %}
 {% block title %} | Edit Review{% endblock %}
 {% block page_content %}
-<form class="form-edit-review" method="POST" action="{% url 'edit review' pk=review.pk %}">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Update data</button>
-</form>
+
+<section class="edit-review">
+    <h1>You are going to edit - <a href="{% url 'book details' pk=review.book.pk %}">({{ review.book.book_title }})</a> review</h1>
+    <form class="edit-review-form" method="POST" action="{% url 'edit review' pk=review.pk %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Update data</button>
+    </form>
+</section>
+
 {% endblock %}

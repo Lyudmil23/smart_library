@@ -1,12 +1,12 @@
 .register {
-        margin: 200px 0 100px 730px;
+        margin: 200px 0 137px 38%;
 }
 
 .card {
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background-color: lightgreen;
-    width: 450px;
+    background: linear-gradient(to right, lightseagreen, #b3dfe2);
+    max-width: 450px;
     border-radius: 10px;
 }
 
@@ -59,15 +59,40 @@
 
 @media screen and (max-width: 1158px) {
     .register {
-        margin-left: 100px;
+        margin-left: 33%;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .register {
+        margin-left: 23%;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    .register {
+        margin-left: 15%;
     }
 }
 
 @media screen and (max-width: 650px){
     .register {
         margin-left: 50px;
-        margin-top: 230px;
+        margin-top: 250px;
     }
 
+}
+
+@media screen and (max-width: 550px){
+    .register {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .user-access-form input {
+        width: 300px;
+    }
+    .card-header h1 {
+        font-size: 26px;
+    }
 }
 

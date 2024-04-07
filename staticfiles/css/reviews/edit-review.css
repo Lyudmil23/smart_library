@@ -1,31 +1,45 @@
-.form-edit-review {
+.edit-review {
     margin: 250px auto;
-    background-color: lightgreen;
+    background: linear-gradient(to right, lightseagreen, #b3dfe2);
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.edit-review h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.edit-review h1 a {
+    text-decoration: none;
+    color: blue;
+}
+
+.edit-review h1 a:hover {
+    color: red;
+}
+
+.edit-review-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500px;
-    border-radius: 10px;
 }
 
-.form-edit-review label {
+.edit-review-form label {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
     padding-top: 15px;
 }
-.form-edit-review textarea {
+.edit-review-form textarea, .edit-review-form input{
     border-radius: 10px;
-    width: 400px;
+    width: 85%;
     padding: 5px;
     margin-bottom: 20px;
-}
-.form-edit-review input {
-    border-radius: 10px;
-    width: 400px;
-    padding: 5px;
+    font-size: 20px;
 }
 
-.form-edit-review button {
+.edit-review-form button {
     color: white;
     background-color: #0077ff;
     font-size: 18px;
@@ -37,13 +51,32 @@
 
 }
 
-.form-edit-review button:hover {
+.edit-review-form button:hover {
     cursor: pointer;
     background-color: #0033ff;
 }
 
 @media  screen and (max-width: 890px) {
-    .form-edit-review {
-        margin-top: 400px;
+    .edit-review {
+        margin-top: 420px;
+    }
+}
+
+@media  screen and (max-width: 550px) {
+    .edit-review {
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+    .edit-review h1 {
+        font-size: 20px;
+    }
+    .edit-review-form label {
+        font-size: 18px;
+    }
+    .edit-review-form textarea, .edit-review-form input {
+        font-size: 16px;
+    }
+    .edit-review-form button {
+        font-size: 16px;
     }
 }

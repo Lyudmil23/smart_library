@@ -3,6 +3,8 @@
 {% block page_content %}
 
 {% if rented_books %}
+<section class="reviews-rents-table">
+    <h1>My rents</h1>
     <table>
         <thead>
             <tr>
@@ -22,13 +24,15 @@
                 <td>{{ rented_book.user.username }}</td>
                 <td><a class="book-table-details" href="{% url 'book details' pk=rented_book.book.pk %}">{{ rented_book.book.book_title }}</a></td>
                 <td>{{ rented_book.book.author.first_name }} {{ rented_book.book.author.last_name }}</td>
-                <td>{{ rented_book.book.price }}</td>
+                <td>{{ rented_book.book.price|floatformat:2 }}$</td>
                 <td>{{ rented_book.period_start }}</td>
                 <td>{{ rented_book.period_end }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</section>
+
 {% else %}
     <div class="no-rents-reviews">
         <h1>You did not rent a book yet!</h1>

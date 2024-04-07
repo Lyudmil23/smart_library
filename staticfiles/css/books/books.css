@@ -1,7 +1,7 @@
 .book-card {
     width: 550px;
-    height: 380px;
-    background-color: lightgreen;
+    min-height: 380px;
+    background: linear-gradient(to right, lightseagreen, #b3dfe2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,6 +23,7 @@
 
 #book-title {
     margin-top: 35px;
+    text-align: center;
 }
 
 #book-title a {
@@ -36,4 +37,28 @@
 
 .book-details p {
     font-size: 22px;
+}
+
+@media screen and (max-width: 600px) {
+    .book-card {
+        max-width: 400px;
+    }
+    .book-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .book-card {
+        max-width: 300px;
+    }
+    .book-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 25px;
+    }
 }

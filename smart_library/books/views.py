@@ -8,10 +8,11 @@ from django.views.generic import ListView, TemplateView
 
 from smart_library.books.forms import RentBookForm
 from smart_library.books.models import Book, RentBook
+from smart_library.common.pagination_mixin import PaginationMixin
 from smart_library.reviews.models import Review
 
 
-class BooksView(ListView):
+class BooksView(PaginationMixin, ListView):
     model = Book
     template_name = 'books/books.html'
     context_object_name = 'books'

@@ -1,5 +1,39 @@
 <div class="footer">
-    <p>&copy; 2024 Smart Library. All rights reserved.</p>
-    <p>Powered By Lyudmil Lyubenov</p>
+    <section class="all-footer-links">
+        <div class="footer-links">
+            <p>Browse</p>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'books' %}">Books</a></li>
+                <li><a href="{% url 'categories' %}">Categories</a></li>
+                <li><a href="{% url 'authors' %}">Authors</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <p>Account</p>
+            <ul>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'profile details' pk=request.user.pk %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="footer-links">
+            <p>Contacts</p>
+            <ul>
+                <li>Phone: + 359 888 555555</li>
+                <li>Email: smartlibrary@mail.bg</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="footer-bottom">
+        <p>&copy; 2024 Smart Library. All rights reserved.</p>
+        <p>Powered By Lyudmil Lyubenov</p>
+    </section>
+
 </div>
 

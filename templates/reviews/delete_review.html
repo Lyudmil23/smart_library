@@ -3,7 +3,7 @@
 {% block page_content %}
 <form class="form-delete-review" method="POST" action="{% url 'delete review' pk=review.pk %}">
     {% csrf_token %}
-    <h1>Are you sure you want to delete review - <strong class="review-comment">({{ review.comment }})</strong></h1>
+    <h1>Are you sure you want to delete - <a href="{% url 'book details' pk=review.book.pk %}">({{ review.book.book_title }})</a> review</h1>
     <button type="submit">Delete</button>
 </form>
 {% endblock %}

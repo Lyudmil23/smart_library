@@ -6,8 +6,7 @@
 @import "accounts/profile-edit.css";
 @import "accounts/profile-delete.css";
 @import "accounts/change_password.css";
-@import "authors/authors.css";
-@import "categories/categories.css";
+@import "authors-categories/authors-categories.css";
 @import "books/books.css";
 @import "books/book.css";
 @import "books/rent-book.css";

@@ -1,0 +1,137 @@
+.common {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.common-list {
+    margin-top: 200px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 70px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.author-category-container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background: linear-gradient(to right, lightseagreen, #b3dfe2);
+    width: 550px;
+    border-radius: 12px;
+}
+
+.author-category-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 30px;
+}
+
+.author-category-details p {
+    text-align: center;
+}
+
+.author-category-details ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    gap: 15px;
+}
+
+.author-category-details img {
+    width: 170px;
+    height: 170px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.author-category-details img:hover {
+    opacity: 0.7;
+}
+
+.author-category-details ul li {
+    text-align: center;
+    font-size: 24px;
+    color: #dc4242;
+}
+
+.pagination {
+    margin: 100px 0 70px 0;
+    display: inline-block;
+    background-color: white;
+    max-width: 600px;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+@media screen and (max-width: 915px) {
+    .common-list {
+        margin-top: 250px;
+    }
+}
+
+@media screen and (max-width: 761px) {
+    .common-list {
+        margin-top: 400px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .author-category-container {
+        width: 500px;
+    }
+    .pagination {
+        max-width: 90%;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:530px) {
+    .author-category-container {
+        width: 400px;
+    }
+    .author-category-details {
+        font-size: 22px;
+    }
+    .author-category-details ul {
+        display: flex;
+        flex-direction: column;
+    }
+    .author-category-details ul li {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .author-category-container {
+        width: 300px;
+    }
+}
+
+

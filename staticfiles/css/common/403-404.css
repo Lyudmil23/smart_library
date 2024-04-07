@@ -7,7 +7,7 @@
 
 .card-handler {
     width: 350px;
-    background-color: orange;
+    background: linear-gradient(to right, lightseagreen, #b3dfe2);
     padding: 40px 20px;
     border-radius: 10px;
     text-align: center;
@@ -47,5 +47,6 @@
 @media screen and (max-width: 900px) {
     .handler {
         margin-top: 360px;
+        margin-bottom: 100px;
     }
 }

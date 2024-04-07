@@ -51,6 +51,18 @@ class AppUserLoginForm(AuthenticationForm):
         self.fields['password'].widget.attrs['placeholder'] = 'Enter Password'
 
 
+#This form is inherited in admin.py from class ProfileAdmin
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['first_name', 'last_name', 'gender', 'profile_image', 'user']
+
+    def __init__(self, *args, **kwargs):
+        super(ProfileForm, self).__init__(*args, **kwargs)
+        # Limiting the choices for the 'user' field to the current user only
+        self.fields['user'].queryset = self.fields['user'].queryset.filter(pk=self.instance.user.pk)
+
+
 class ProfileEditForm(forms.ModelForm):
     username = forms.CharField(required=True)
     email = forms.EmailField(required=True)

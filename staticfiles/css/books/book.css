@@ -1,5 +1,5 @@
 .book-section {
-    margin: 185px 0 100px 50px;
+    margin: 185px 0 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,11 +9,11 @@
 .book-information {
     max-width: 800px;
     min-height: 250px;
-    background-color: lightgreen;
+    background: linear-gradient(to right, lightseagreen, #b3dfe2);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 35px;
     gap: 70px;
     border-radius: 12px;
 
@@ -26,9 +26,13 @@
 
 .book-image {
     width: 250px;
+    height: 388px;
 }
 
 .book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
 }
 
@@ -44,6 +48,11 @@
 .more-info p:nth-child(1){
     font-size: 24px;
     font-weight: bold;
+}
+
+.rent-review-buttons {
+    display: flex;
+    gap: 20px;
 }
 
 .rent-review-button {
@@ -68,21 +77,21 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    background-color: white;
-    max-width: 1300px;
+    background-color: lightgrey;
+    max-width: 1000px;
     width: 100%;
     padding: 20px;
+    font-size: 22px;
+    border-radius: 8px;
 }
 
-
 .review {
-    max-width: 1200px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    background-color: orange;
-    font-size: 22px;
+    gap: 30px;
+    background: linear-gradient(to right, lightseagreen, #b3dfe2);
+    font-size: 20px;
     padding: 20px;
     border-radius: 10px;
 }
@@ -92,15 +101,19 @@
     width: 100%;
 }
 
-@media screen and (max-width: 890px) {
-    .book-section {
-        margin-top: 300px;
+.no-reviews {
+    text-align: center;
+}
+
+@media screen and (max-width: 1030px) {
+    .reviews {
+        max-width: 90%;
     }
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 890px) {
     .book-section {
-        margin-top: 400px;
+        margin-top: 300px;
     }
 }
 
@@ -110,4 +123,50 @@
         flex-direction: column;
         align-items: center;
     }
+    .review {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .review-left-part {
+        max-width: 100%;
+    }
+    .no-reviews {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .book-section {
+        margin-top: 400px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .book-information {
+        max-width: 90%;
+    }
+    .rent-review-buttons a {
+        font-size: 14px;
+    }
+    .book-section {
+        margin-top: 450px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .book-image {
+        width: 200px;
+        height: 338px;
+    }
+    .rent-review-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    .no-reviews {
+        font-size: 20px;
+    }
+
 }

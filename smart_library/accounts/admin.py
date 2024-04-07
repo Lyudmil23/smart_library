@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.html import format_html
 
+from smart_library.accounts.forms import ProfileForm
 from smart_library.accounts.models import AppUser, Profile
 
 
@@ -9,9 +10,10 @@ from smart_library.accounts.models import AppUser, Profile
 class AppUserAdmin(UserAdmin):
     list_display = ('username', 'email', 'date_joined', 'is_active', 'is_staff', 'is_superuser')
     list_display_links = ('username', 'email')
-    list_filter = ('username', 'date_joined', 'is_staff', 'is_superuser')
+    list_filter = ('date_joined', 'is_staff', 'is_superuser')
     search_fields = ('username', 'email')
     ordering = ('date_joined', )
+    list_per_page = 10
 
     fieldsets = (
         (None, {'fields': ('username', 'email', 'password')}),
@@ -29,7 +31,7 @@ class AppUserAdmin(UserAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    # form = ProfileForm
+    form = ProfileForm
 
     def thumbnail(self, object):
         if object.profile_image:
@@ -38,10 +40,11 @@ class ProfileAdmin(admin.ModelAdmin):
         else:
             return '-'
 
-    thumbnail.short_description = 'User Image'
+    thumbnail.short_description = 'Profile Thumbnail'
 
     list_display = ('first_name', 'last_name', 'thumbnail', 'gender', 'profile_image', 'user')
     list_display_links = ('first_name', 'user')
     list_filter = ('first_name', 'last_name', 'gender')
     search_fields = ('first_name', 'last_name', 'gender')
     ordering = ('user', )
+    list_per_page = 10

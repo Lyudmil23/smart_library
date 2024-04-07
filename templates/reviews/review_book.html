@@ -2,7 +2,6 @@
 {% block title %} | {{ book.book_title }} | Review {% endblock %}
 {% block page_content %}
 <div class="write-review">
-    <h1>Write a Review - <strong style="color: blue">({{ book.book_title }})</strong> book</h1>
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -10,20 +9,14 @@
             {% endfor %}
         </ul>
     {% endif %}
+
+    <h1>Write a Review - <a href="{% url 'book details' pk=book.pk %}">({{ book.book_title }})</a> book</h1>
+
     <form class="form-review" method="POST" action="{% url 'review book' pk=book.pk %}" >
         {% csrf_token %}
         {{ form }}
         <button type="submit" class="rent-review-button">Submit</button>
     </form>
 </div>
-<script>
-setTimeout(function() {
-    let messageList = document.getElementsByClassName('messages')[0]
-    while (messageList.firstChild) {
-        messageList.removeChild(messageList.firstChild);
-    }
-    messageList.style.display = 'none';
-}, 7000);
-</script>
 {% endblock %}
 

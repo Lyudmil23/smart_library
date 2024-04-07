@@ -25,7 +25,7 @@ def review_book(request, pk, *args, **kwargs):
         if form.is_valid():
             # Checking if the user has already reviewed this book
             if Review.objects.filter(user=request.user, book=book).exists():
-                messages.error(request, "Oops! It looks like you've already reviewed this book. Feel free to edit your existing review if needed.")
+                messages.error(request, "It looks like you've already reviewed this book. Feel free to edit your existing review if needed.")
             else:
                 review = form.save(commit=False)
                 review.user = request.user

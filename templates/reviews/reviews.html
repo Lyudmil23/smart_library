@@ -3,34 +3,38 @@
 {% block page_content %}
 
 {% if reviews %}
-<table>
-    <thead>
-        <tr>
-          <th>#</th>
-          <th>User</th>
-          <th>Book</th>
-          <th>Rate</th>
-          <th>Comment</th>
-          <th>Created At</th>
-          <th>Delete</th>
-          <th>Edit</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for review in reviews %}
-        <tr>
-            <th scope="row">{{forloop.counter}}</th>
-            <td>{{ review.user.username }}</td>
-            <td><a class="book-table-details" href="{% url 'book details' pk=review.book.pk %}">{{ review.book.book_title}}</a></td>
-            <td>{{ review.rate }}</td>
-            <td>{{ review.comment }}</td>
-            <td>{{ review.created_at }}</td>
-            <td><a class="button-delete-review" href="{% url 'delete review' pk=review.pk %}">Delete</a></td>
-            <td><a class="button-edit-review" href="{% url 'edit review' pk=review.pk %}">Edit</a></td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<section class="reviews-rents-table">
+    <h1>My reviews</h1>
+    <table>
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>User</th>
+              <th>Book</th>
+              <th>Rate</th>
+              <th>Comment</th>
+              <th>Created At</th>
+              <th>Delete</th>
+              <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for review in reviews %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{ review.user.username }}</td>
+                <td><a class="book-table-details" href="{% url 'book details' pk=review.book.pk %}">{{ review.book.book_title}}</a></td>
+                <td>{{ review.rate }}</td>
+                <td>{{ review.comment }}</td>
+                <td>{{ review.created_at }}</td>
+                <td><a class="button-delete-review" href="{% url 'delete review' pk=review.pk %}">Delete</a></td>
+                <td><a class="button-edit-review" href="{% url 'edit review' pk=review.pk %}">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+
 {% else %}
     <div class="no-rents-reviews">
         <h1>You did not leave a review yet!</h1>

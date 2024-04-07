@@ -7,6 +7,11 @@
     gap: 30px;
 }
 
+.profile-delete-buttons {
+    display: flex;
+    gap: 20px;
+}
+
 .profile-delete-form button {
     color: white;
     background-color: red;
@@ -28,7 +33,7 @@
     background-color: #0077ff;
     text-decoration: none;
     padding: 10px 35px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
 }
@@ -36,4 +41,19 @@
 .profile-delete-form a:hover {
     cursor: pointer;
     background-color: #0033ff;
+}
+
+@media screen and (max-width: 500px) {
+    .profile-delete-buttons button, .profile-delete-buttons a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .profile-delete-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 }

@@ -15,10 +15,12 @@
             </div>
             <h2>Username: {{ user.username }}</h2>
             <h4>Email: {{ user.email }}</h4>
-            <button type="submit">Yes</button>
-            <a type="button" href="{% url 'profile details' pk=user.pk %}">
-                Back to Profile
-            </a>
+            <div class="profile-delete-buttons">
+                <button type="submit">Yes</button>
+                <a type="button" href="{% url 'profile details' pk=user.pk %}">
+                    Back to Profile
+                </a>
+            </div>
         </form>
     </section>
 

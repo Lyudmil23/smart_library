@@ -4,15 +4,19 @@
 
 <section class="common">
     <div class="common-list">
-        {% for author in authors_list %}
-        <div class="author-container">
-            <div class="author-details">
+        {% for author in authors %}
+        <div class="author-category-container">
+            <div class="author-category-details">
                 <p><strong>Author:</strong> {{ author.first_name }} {{ author.last_name }}</p>
                 <p><strong>Date of Birth:</strong> {{ author.date_of_birth }}</p>
                 <p>Books:</p>
                 <ul>
                     {% for book in author.books.all %}
-                        <li><a href="{% url 'book details' pk=book.pk %}">{{ book.book_title }}</a></li>
+                        <li>
+                            <a href="{% url 'book details' pk=book.pk%}">
+                                <img src="{{ book.book_image.url }}" alt="{{ book.book_title }} Image">
+                            </a>
+                        </li>
                     {% empty %}
                         <li>“We’re sorry, but we currently do not have any books by this author in our collection.
                             Please check back later as we are constantly updating our library.”</li>
