@@ -171,8 +171,21 @@ body {
     }
 }
 
+@media screen and (max-width: 670px) {
+    .top-books {
+        margin-top: 420px;
+    }
+    .top-3-books {
+        margin-bottom: -155px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .navigation-links li {
+        text-align: center;
+    }
+    .top-3-books {
+        font-size: 26px;
         text-align: center;
     }
 }

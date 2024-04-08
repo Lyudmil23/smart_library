@@ -11,7 +11,7 @@
                 <h1 id="book-title"><a href="{% url 'book details' pk=book.pk %}">{{ book.book_title }}</a></h1>
                 <div class="book-info">
                     <a href="{% url 'book details' pk=book.pk%}">
-                        <img src="{{ book.book_image.url }}" alt="Book Image">
+                        <img src="{{ book.book_image.url }}" alt="{{ book.book_title }} Image">
                     </a>
                     <div class="book-details">
                         <p><strong>Author:</strong> {{ book.author.first_name }} {{ book.author.last_name }}</p>

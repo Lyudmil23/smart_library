@@ -72,27 +72,32 @@
 @media screen and (max-width: 755px) {
     .register {
         margin-left: 15%;
+        margin-top: 400px;
     }
 }
 
 @media screen and (max-width: 650px){
     .register {
         margin-left: 50px;
-        margin-top: 250px;
     }
-
 }
 
 @media screen and (max-width: 550px){
     .register {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     .user-access-form input {
         width: 300px;
     }
     .card-header h1 {
         font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 437px){
+    .user-access-form input {
+        width: 250px;
     }
 }
 
