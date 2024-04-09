@@ -16,7 +16,7 @@
                     <div class="book-details">
                         <p><strong>Author:</strong> {{ book.author.first_name }} {{ book.author.last_name }}</p>
                         <p><strong>Category:</strong> {{ book.category.name }}</p>
-                        <p><strong>Price:</strong> {{ book.price|floatformat:2 }}<p>
+                        <p><strong>Price:</strong> {{ book.price|floatformat:2 }}$<p>
                         <p><strong>Serial:</strong> {{ book.serial }}</p>
                         <p><strong>Rate: {{ book.avg_rate|floatformat:2 }}</strong> </p>
                     </div>
