@@ -7,3 +7,4 @@ This is my personal Web Project built with Django Framework. Smart Library is a 
 - Adding, editing and deleting reviews
 - Renting books
 - User-friendly interface with a responsive design
+<u><h2>Screenshots</h2></u><br> 
