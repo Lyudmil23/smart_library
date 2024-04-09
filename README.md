@@ -9,4 +9,5 @@ This is my personal Web Project built with Django Framework. Smart Library is a 
 - User-friendly interface with a responsive design
 
 <u><h2>Screenshots</h2></u><br>
+![Login Page](images_for_readme/login.png)
 
