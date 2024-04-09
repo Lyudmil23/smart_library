@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView
 
@@ -14,10 +14,12 @@ from smart_library.reviews.permission_mixin import PermissionRequiredMixin
 
 @login_required
 def review_book(request, pk, *args, **kwargs):
-    try:
-        book = Book.objects.get(id=pk)
-    except Book.DoesNotExist:
-        return render(request, "404.html")
+    # try:
+    #     book = Book.objects.get(id=pk)
+    # except Book.DoesNotExist:
+    #     return render(request, "404.html")
+
+    book = get_object_or_404(Book, id=pk)
 
     form = ReviewBookForm(request.POST or None)
 
