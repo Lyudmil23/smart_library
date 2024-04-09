@@ -10,4 +10,5 @@ This is my personal Web Project built with Django Framework. Smart Library is a 
 
 <u><h2>Screenshots</h2></u><br>
 ![Login Page](images_for_readme/login.png)
+![Register Page](images_for_readme/register.png)
 
