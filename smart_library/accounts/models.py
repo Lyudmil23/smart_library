@@ -11,10 +11,16 @@ from smart_library.core.validators import validate_only_letters
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
     MAX_LENGTH_USERNAME = 30
+    MIN_LENGTH_USERNAME = 3
 
     username = models.CharField(
         max_length=MAX_LENGTH_USERNAME,
+        validators=(
+            MinLengthValidator(MIN_LENGTH_USERNAME),
+        ),
         unique=True,
+        null=False,
+        blank=False,
     )
 
     email = models.EmailField(

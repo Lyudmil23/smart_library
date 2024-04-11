@@ -48,3 +48,7 @@ class ProfileAdmin(admin.ModelAdmin):
     search_fields = ('first_name', 'last_name', 'gender')
     ordering = ('user', )
     list_per_page = 10
+
+    # Disabling the ability to add profiles from the admin interface
+    def has_add_permission(self, request):
+        return False

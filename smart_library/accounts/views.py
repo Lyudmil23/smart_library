@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
+from django.core.validators import MinLengthValidator
 from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -52,6 +53,17 @@ class AppUserEditView(LoginRequiredMixin, CustomAccessMixin, UpdateView):
     def form_valid(self, form):
         new_username = form.cleaned_data.get('username')
         user = self.request.user
+
+        # Retrieving the MinLengthValidator from the model field validators
+        validators = AppUser._meta.get_field('username').validators
+        min_length_validator = next(
+            (validator for validator in validators if isinstance(validator, MinLengthValidator)))
+
+        # Checking if the new username meets the minimum length requirement
+        min_length = min_length_validator.limit_value
+        if len(new_username) < min_length:
+            messages.error(self.request, f'Username must be at least {min_length} characters long.')
+            return self.form_invalid(form)
 
         # Checking if the new username exceeds the maximum length
         max_length = AppUser._meta.get_field('username').max_length

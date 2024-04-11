@@ -77,8 +77,8 @@ class Book(models.Model):
 
         super().save(*args, **kwargs)
 
-    # class Meta:
-    #     ordering = ('id', )
+    class Meta:
+        ordering = ('id', )
 
 
 class RentBook(models.Model):
