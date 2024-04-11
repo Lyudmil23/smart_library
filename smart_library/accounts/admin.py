@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.html import format_html
 
-from smart_library.accounts.forms import ProfileForm
+# from smart_library.accounts.forms import ProfileForm
 from smart_library.accounts.models import AppUser, Profile
 
 
@@ -31,7 +31,6 @@ class AppUserAdmin(UserAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    form = ProfileForm
 
     def thumbnail(self, object):
         if object.profile_image:
@@ -49,6 +48,12 @@ class ProfileAdmin(admin.ModelAdmin):
     ordering = ('user', )
     list_per_page = 10
 
-    # Disabling the ability to add profiles from the admin interface
+    # Disabling the ability to add profiles
     def has_add_permission(self, request):
         return False
+
+    #Disabling the user field in profile
+    def get_readonly_fields(self, request, obj=None):
+        readonly_fields = list(super(ProfileAdmin, self).get_readonly_fields(request, obj))
+        readonly_fields.append('user')
+        return readonly_fields
