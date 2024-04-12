@@ -88,11 +88,8 @@
 .review {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    /*background: linear-gradient(to right, lightseagreen, #b3dfe2);*/
+    gap: 155px;
     background: linear-gradient(to right, #008b8b, #b3dfe2);
-
     font-size: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -101,6 +98,11 @@
 .review-left-part {
     max-width: 400px;
     width: 100%;
+}
+.review-right-part {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .no-reviews {

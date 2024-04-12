@@ -33,12 +33,12 @@
         {% for review in reviews %}
         <div class="review">
             <div class="review-left-part">
-                <p><b>Username:</b> {{ review.user.username }}</p>
-                <p><b>Comment:</b> {{ review.comment }}</p>
+                <p><strong>Username:</strong> {{ review.user.username }}</p>
+                <p><strong>Comment:</strong> {{ review.comment }}</p>
             </div>
             <div class="review-right-part">
-                <p><b>Rate:</b> {{ review.rate }}</p>
-                <p><b>Created at:</b> {{ review.created_at }}</p>
+                <p><strong>Rate:</strong> {{ review.rate }}</p>
+                <p><strong>Created at:</strong> {{ review.created_at }}</p>
             </div>
         </div>
         {% endfor %}
