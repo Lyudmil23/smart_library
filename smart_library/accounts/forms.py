@@ -1,16 +1,20 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.models import User
-from django.core.validators import MinLengthValidator, RegexValidator
+from django.core.validators import MinLengthValidator, RegexValidator, MaxLengthValidator
 
 from smart_library.accounts.models import AppUser, Profile
 
 
 class AppUserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(
-        validators=[MinLengthValidator(2), RegexValidator(r'^[a-zA-Z]*$', 'The name should contain only letters!')])
+        validators=[MinLengthValidator(2),
+                    MaxLengthValidator(30),
+                    RegexValidator(r'^[a-zA-Z]*$', 'The name should contain only letters!')])
     last_name = forms.CharField(
-        validators=[MinLengthValidator(2), RegexValidator(r'^[a-zA-Z]*$', 'The name should contain only letters!')])
+        validators=[MinLengthValidator(2),
+                    MaxLengthValidator(30),
+                    RegexValidator(r'^[a-zA-Z]*$', 'The name should contain only letters!')])
 
     class Meta:
         model = AppUser

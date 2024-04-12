@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.core.exceptions import PermissionDenied
 from django.utils.html import format_html
 
 # from smart_library.accounts.forms import ProfileForm
@@ -50,6 +51,13 @@ class ProfileAdmin(admin.ModelAdmin):
 
     # Disabling the ability to add profiles
     def has_add_permission(self, request):
+        return False
+
+    #Disabling the ability to delete profiles
+    def has_delete_permission(self, request, obj=None):
+        # Checking if deletion is performed from the User model
+        if request.path.startswith('/admin/accounts/appuser/'):
+            return True
         return False
 
     #Disabling the user field in profile

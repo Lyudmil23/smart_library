@@ -90,7 +90,9 @@
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    background: linear-gradient(to right, lightseagreen, #b3dfe2);
+    /*background: linear-gradient(to right, lightseagreen, #b3dfe2);*/
+    background: linear-gradient(to right, #008b8b, #b3dfe2);
+
     font-size: 20px;
     padding: 20px;
     border-radius: 10px;
