@@ -1,9 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from django.core.exceptions import PermissionDenied
 from django.utils.html import format_html
 
-# from smart_library.accounts.forms import ProfileForm
 from smart_library.accounts.models import AppUser, Profile
 
 
