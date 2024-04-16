@@ -43,7 +43,7 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'thumbnail', 'gender', 'profile_image', 'user')
     list_display_links = ('first_name', 'user')
     list_filter = ('first_name', 'last_name', 'gender')
-    search_fields = ('first_name', 'last_name', 'gender')
+    search_fields = ('first_name', 'last_name', '=gender')
     ordering = ('user', )
     list_per_page = 10
 

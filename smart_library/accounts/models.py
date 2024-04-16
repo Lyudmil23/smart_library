@@ -58,7 +58,6 @@ class Profile(models.Model):
     CHOICES = (
         ('Male', 'Male'),
         ('Female', 'Female'),
-        ('Do not show', 'Do not show'),
     )
 
     MIN_LENGTH_FIRST_NAME = 2
