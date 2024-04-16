@@ -132,6 +132,10 @@
     .author-category-container {
         width: 300px;
     }
+    .pagination {
+        max-width: 90%;
+        font-size: 14px;
+    }
 }
 
 
