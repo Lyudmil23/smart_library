@@ -24,7 +24,7 @@ class BookAdmin(admin.ModelAdmin):
 class RentBookAdmin(admin.ModelAdmin):
     list_display = ('user', 'book', 'created_at', 'period_start', 'period_end')
     list_display_links = ('user', 'book')
-    list_filter = ('user', 'book', 'created_at', 'period_start', 'period_end')
+    list_filter = ('user', 'book', 'created_at')
     ordering = ('id', )
     search_fields = ('user__username', 'book__book_title')
     list_per_page = 10
