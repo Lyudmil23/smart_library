@@ -10,3 +10,4 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ('user', 'book')
     ordering = ('id', )
     search_fields = ('user__username', 'book__book_title')
+    list_per_page = 15
